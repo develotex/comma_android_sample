@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Comma SDK Sample</string>
 
-    <string name="comma_api_id">2</string>
-    <string name="comma_api_key">DevProject2ApiKeyDevProject2ApiKeyDevProject2ApiKeyDevProject2Ap</string>
-    <string name="comma_app_id">2</string>
+    <string name="comma_api_id">1</string>
+    <string name="comma_api_key">API_KEY</string>
+    <string name="comma_app_id">1</string>
 
     <!-- Auth Fragment -->
     <string name="fragment_auth_user_id">User ID</string>

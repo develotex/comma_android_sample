@@ -1,0 +1,2 @@
+include ':comma_sample'
+rootProject.name = "CommaSdkSample"

@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Comma SDK Sample</string>
+
+    <string name="comma_api_id">2</string>
+    <string name="comma_api_key">DevProject2ApiKeyDevProject2ApiKeyDevProject2ApiKeyDevProject2Ap</string>
+    <string name="comma_app_id">2</string>
+
+    <!-- Auth Fragment -->
+    <string name="fragment_auth_user_id">User ID</string>
+    <string name="fragment_auth_user_name">User name</string>
+    <string name="fragment_auth_confirm">Confirm</string>
+    <string name="fragment_auth_fill_fields">First, fill all fields</string>
+
+    <!-- Home Fragment -->
+    <string name="fragment_home_current_user_id">Current user id = %1$s</string>
+    <string name="fragment_home_current_user_name">Current user name = %1$s</string>
+    <string name="fragment_home_logout">Logout</string>
+    <string name="fragment_home_enter_user_id">Enter user id</string>
+    <string name="fragment_home_call_audio">Audio call</string>
+    <string name="fragment_home_call_video">Video call</string>
+
+    <!-- Call Fragment -->
+    <string name="fragment_call_permissions">For calls, you must provide permissions!</string>
+    <string name="fragment_call_incoming_call">Incoming call</string>
+    <string name="fragment_call_outgoing_call">Outgoing call</string>
+    <string name="fragment_call_talking">Talking with</string>
+    <string name="fragment_call_finished">Talking is over</string>
+    <string name="fragment_call_decline">Decline</string>
+    <string name="fragment_call_answer">Answer</string>
+    <string name="fragment_call_video_chat">Video chat</string>
+    <string name="fragment_call_microphone">Microphone</string>
+    <string name="fragment_call_rotate_camera">Rotate camera</string>
+    <string name="fragment_call_speaker">Speaker</string>
+
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/fragment_launch">
+
+    <fragment
+        android:id="@+id/fragment_launch"
+        android:name="io.develotex.comma_sample.ui.launch.LaunchFragment"
+        android:label="fragment_launch"
+        tools:layout="@layout/fragment_launch" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_auth"
+        android:name="io.develotex.comma_sample.ui.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="io.develotex.comma_sample.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_call"
+        android:name="io.develotex.comma_sample.ui.call.CallFragment"
+        android:label="fragment_call"
+        tools:layout="@layout/fragment_call" >
+
+<!--        <action-->
+<!--            android:id="@+id/action_fragment_top_profiles_to_fragment_dialog"-->
+<!--            app:destination="@id/fragment_dialog"-->
+<!--            app:enterAnim="@anim/fade_in"-->
+<!--            app:exitAnim="@anim/fade_out"-->
+<!--            app:popEnterAnim="@anim/fade_in"-->
+<!--            app:popExitAnim="@anim/fade_out" />-->
+
+    </fragment>
+
+
+</navigation>

@@ -21,12 +21,11 @@ public class FirebaseListenerService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
-        if(Comma.isCallPush(remoteMessage.getData())) {
-            Log.d(TAG, "Call push");
+        if(Comma.getCallPush(remoteMessage.getData()) != null) {
+            Log.d(TAG, "Call push = " + Comma.getCallPush(remoteMessage.getData()).toString());
         } else {
             Log.d(TAG, "Push = " + remoteMessage.toString());
         }
-
     }
 
 }

@@ -126,7 +126,7 @@ Calling with video:
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
-        if(Comma.isCallPush(remoteMessage.getData())) {
+        if(Comma.getCallPush(remoteMessage.getData()) != null) {
             // this is an incoming call push
             // 1. start application
             // 2. initialize library
@@ -213,7 +213,7 @@ Available `CallListener` callbacks:
 ```
 
 ## **What's new**
-* **1.0.0-alpha8**
+* **1.0.1**
     * Just released
 
 ## **License**

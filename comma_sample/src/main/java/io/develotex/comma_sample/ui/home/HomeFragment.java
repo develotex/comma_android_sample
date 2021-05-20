@@ -15,6 +15,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import io.develotex.comma.Comma;
 import io.develotex.comma.ConnectionListener;
+import io.develotex.comma.IncomingCall;
+import io.develotex.comma.IncomingCallListener;
 import io.develotex.comma_sample.R;
 import io.develotex.comma_sample.data.SharedPrefs;
 import io.develotex.comma_sample.ui.BaseFragment;
@@ -81,12 +83,12 @@ public class HomeFragment extends BaseFragment {
                 call(Integer.valueOf(userId), CallType.OUTGOING_VIDEO_CALL);
         });
 
-        Comma.getInstance().addConnectionListener(new ConnectionListener() {
+        Comma.getInstance().addIncomingCallListener(new IncomingCallListener() {
             @Override
-            public void onIncomingCall(Integer companionId, String companionName, Boolean isVideoRequested) {
+            public void onIncomingCall(IncomingCall incomingCall) {
                 CallViewModel callViewModel = new ViewModelProvider(getActivity()).get(CallViewModel.class);
-                callViewModel.setUserId(companionId);
-                callViewModel.setCallType(isVideoRequested ? CallType.INCOMING_VIDEO_CALL : CallType.INCOMING_AUDIO_CALL);
+                callViewModel.setUserId(incomingCall.getCompanionId());
+                callViewModel.setCallType(incomingCall.isVideoRequested() ? CallType.INCOMING_VIDEO_CALL : CallType.INCOMING_AUDIO_CALL);
 
                 getNavigation().navigate(R.id.fragment_call);
             }

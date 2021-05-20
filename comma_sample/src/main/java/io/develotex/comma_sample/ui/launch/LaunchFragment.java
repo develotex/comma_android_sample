@@ -13,9 +13,12 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import io.develotex.comma.CaptureConfig;
 import io.develotex.comma.Comma;
 import io.develotex.comma.ConnectionListener;
+import io.develotex.comma.IncomingCall;
 import io.develotex.comma_sample.App;
 import io.develotex.comma_sample.R;
 import io.develotex.comma_sample.ui.BaseFragment;
+import io.develotex.comma_sample.ui.call.CallType;
+import io.develotex.comma_sample.ui.call.CallViewModel;
 
 
 public class LaunchFragment extends BaseFragment {
@@ -59,11 +62,19 @@ public class LaunchFragment extends BaseFragment {
                                     userName,
                                     pushToken)
                             .setCaptureConfig(CaptureConfig.FHD)
-                            .addConnectionListener(new ConnectionListener() {
+                            .setConnectionListener(new ConnectionListener() {
 
                                 @Override
-                                public void onStarted() {
-                                    getNavigation().navigate(R.id.fragment_home);
+                                public void onStarted(IncomingCall incomingCall) {
+                                    if(incomingCall == null)
+                                        getNavigation().navigate(R.id.fragment_home);
+                                    else {
+                                        CallViewModel callViewModel = new ViewModelProvider(getActivity()).get(CallViewModel.class);
+                                        callViewModel.setUserId(incomingCall.getCompanionId());
+                                        callViewModel.setCallType(incomingCall.isVideoRequested() ? CallType.INCOMING_VIDEO_CALL : CallType.INCOMING_AUDIO_CALL);
+
+                                        getNavigation().navigate(R.id.fragment_call);
+                                    }
                                 }
 
                                 @Override

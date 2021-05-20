@@ -40,7 +40,7 @@ First way:
             USER_NAME,
             PUSH_TOKEN)
         .setCaptureConfig(CaptureConfig.FHD)
-        .addConnectionListener(new ConnectionListener() {...})
+        .setConnectionListener(new ConnectionListener() {...})
         .build();
 ```
 
@@ -53,9 +53,12 @@ After it you can save those values on your backend.
             DEVICE_SECRET,
             PUSH_TOKEN)
         .setCaptureConfig(CaptureConfig.FHD)
-        .addConnectionListener(new ConnectionListener() {...})
+        .setConnectionListener(new ConnectionListener() {...})
         .build();
 ```
+
+When Comma Instance ready to use, you will get `onStarted(incomingCall)` callback in your `ConnectionListener`
+**Incoming call is not null when you have unanswered incoming call after initialization**
 
 When you do not need to use it anymore, do not forget to close connection by:
 ```java
@@ -68,42 +71,26 @@ When current user logs out, call it:
 ```java
     Comma.getInstance().deleteDevice();
 ```
-After it you will get `onStopped` callback in your `ConnectionListeners`
+After it you will get `onStopped` callback in your `ConnectionListener`
 
 ## **Callbacks**
 
-For listening library init sates and incoming calls you can use `ConnectionListener`.
+For listening incoming calls you can use `IncomingCallListener`.
 
 To adding listener:
 ```java
-    Comma.getInstance().addConnectionListener(new ConnectionListener() {...});
+    Comma.getInstance().addIncomingCallListener(new IncomingCallListener() {...});
 ``` 
 
 To removing listener:
 ```java
-    Comma.getInstance().removeConnectionListener(existingListener);
+    Comma.getInstance().removeIncomingCallListener(existingListener);
 ``` 
 
-Available `ConnectionListener` callbacks:
+Available `IncomingCallListener` callbacks:
 ```java
-    public void onStarted() {
-        // when Comma instance available for use
-    }
-
-    public void onStopped() {
-        // when Comma stopped
-    }
-
-    public void onError(String error) {
-        // on error occured
-    }
-
-    public void onIncomingCall(Integer companionId, String companionName, Boolean isVideoRequested) {
-        // when you have active incoming call 
-    }
-
-    public void onLog(String log) {
-        // log messages
+    public void onIncomingCall(IncomingCall incomingCall) {
+        // when you have active unanswered incoming call 
     }
 ```
 
@@ -135,7 +122,7 @@ Calling with video:
     }
 ```
 
-* When app is an active your will get `onIncomingCall` callback in yours `ConnectionListeners`
+* When app is an active your will get `onIncomingCall` callback in yours `IncomingCallListeners`
 
 To answer an incoming call:
 ```java
